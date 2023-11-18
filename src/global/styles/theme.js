@@ -2,7 +2,7 @@ export default {
     colors: {
       white: "#FFFFFF",
       black: "#000000",
-      backgroud: "#000000",
+      backgroud: "#131313",
       textLight: "#BBB",
       explodeBackground: "#FF0044",
     },
