@@ -15,6 +15,7 @@ export default function Routes() {
             headerShown: false,
           }}
         >
+          <Stack.Screen name="Disarmed" component={Disarmed} />
           <Stack.Screen name="Start" component={Start} />
           <Stack.Screen name="Rules" component={Rules} />
           <Stack.Screen name="PlayAlone" component={PlayAlone} />
