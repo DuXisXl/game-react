@@ -1,25 +1,33 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import {Container, Logo} from './styles'
+import { Container, Logo, Title, SubTitle, Rules } from "./styles";
+import ButtonComponent from "../../components/Buttons";
+import { Alert } from "react-native";
 
 export default function Start() {
-   const handleNavToPlayAlone = () => {
-    console.log("teste de play-alone")
-   };
-   const handleNavToPlayTogether = () => {
-    console.log("teste de play-together")
-   };
-   const handleNavToRules = () => {
-    console.log("teste de rules")
-   };
-   
-  return <Container>
-    <Logo
-      source={require("../../assets/icon.png")}
-      style={{ resizeMode: "contain" }}
-    />
-    <Title>Bem-vindo ao {"\n"} Bomb game</Title>
-    <SubTitle>Escolha um modo de jogo.</SubTitle>
-    <ButtonComponent
+  const navigation = useNavigation();
+
+  function handleNavToPlayAlone() {
+    Alert.alert("Botão 1 clicado");
+  }
+
+  function handleNavToPlayTogether() {
+    Alert.alert("Botão 2 clicado");
+  }
+
+  function handleNavToRules() {
+    navigation.navigate("Rules")
+  }
+
+  return (
+    <Container>
+      <Logo
+        source={require("../../assets/icon.png")}
+        style={{ resizeMode: "contain" }}
+      />
+      <Title>Bem-vindo ao {"\n"} Bomb game</Title>
+      <SubTitle>Escolha um modo de jogo.</SubTitle>
+      <ButtonComponent
         buttonText={"Jogar Solo"}
         handlePress={handleNavToPlayAlone}
       />
@@ -27,6 +35,7 @@ export default function Start() {
         buttonText={"Jogar Em Dupla"}
         handlePress={handleNavToPlayTogether}
       />
-    <Rules onPress={handleNavToRules}>Ver as regras do jogo</Rules>
-  </Container>;
+      <Rules onPress={handleNavToRules}>Ver as regras do jogo</Rules>
+    </Container>
+  );
 }
